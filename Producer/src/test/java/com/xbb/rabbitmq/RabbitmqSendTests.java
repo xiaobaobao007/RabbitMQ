@@ -35,9 +35,7 @@ public class RabbitmqSendTests {
                 order.setId("id:" + i);
                 order.setName("name:" + i);
                 order.setMessageId(System.currentTimeMillis() + "$" + UUID.randomUUID());
-                synchronized (orderSender) {
-                    orderSender.send(order);
-                }
+                orderSender.send(order);
             } catch (Exception e) {
                 e.printStackTrace();
             }
